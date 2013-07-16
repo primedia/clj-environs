@@ -1,13 +1,18 @@
 # environs
 
-A Clojure library designed to ... well, that part is up to you.
+Attempts to return the value of a JVM System Property.
+If the System Property lookup fails, attempts to return an Environment Variable of the same name.
+If the Environment Variable lookup fails, throws "MissingEnvVarError".
 
 ## Usage
 
-FIXME
+    (:require [environs.core :as environs])
+
+    (environs/get-env "FOO")
 
 ## License
 
-Copyright © 2013 FIXME
 
-Distributed under the Eclipse Public License, the same as Clojure.
+Copyright (c) 2013 by Jack Morrill. All rights reserved.
+
+Distributed under the Eclipse Public License 1.0 (http://opensource.org/licenses/eclipse-1.0.php)
