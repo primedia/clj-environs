@@ -6,13 +6,15 @@ If the Environment Variable lookup fails, throws "MissingEnvVarError".
 
 ## Usage
 
+In project.clj :dependencies
+
+    [org.clojars.jackmorrill/environs "0.1.0"]
+
+In your application ns macro
+
     (:require [environs.core :as environs])
+
+Retrieve a System Property
 
     (environs/get-env "FOO")
 
-## License
-
-
-Copyright (c) 2013 by Jack Morrill. All rights reserved.
-
-Distributed under the Eclipse Public License 1.0 (http://opensource.org/licenses/eclipse-1.0.php)

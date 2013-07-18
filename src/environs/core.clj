@@ -10,6 +10,6 @@
   [env-name]
   (let [env-val (or (System/getProperty env-name) (System/getenv env-name))]
     (if (string/blank? env-val)
-      (throw (Exception. "MissingEnvVarError"))
+      (throw (Exception. (str "Missing Environment Variable definition for " env-name)))
       env-val)))
 
