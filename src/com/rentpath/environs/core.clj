@@ -8,7 +8,7 @@
 
      "}
 
-     environs.core
+     com.rentpath.environs.core
      (:require [clojure.string :as string]))
 
 (defn Env
