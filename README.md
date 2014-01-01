@@ -8,13 +8,20 @@ If the Environment Variable lookup fails, throws "MissingEnvVarError".
 
 In project.clj :dependencies
 
-    [org.clojars.jackmorrill/environs "0.1.0"]
+    [com.rentpath/environs "1.0.1"]
 
 In your application ns macro
 
-    (:require [environs.core :as environs])
+    (:require [com.rentpath.environs.core :as environs])
 
 Retrieve a System Property
 
-    (environs/get-env "FOO")
+    (Env "FOO")
+
+Throws "MissingEnvVarError" if FOO is not an environment variable or JVM System Property.
+
+    (Env "FOO" allow-nil)
+
+Just return nil if FOO is not an environment variable or JVM System Property.
+
 
