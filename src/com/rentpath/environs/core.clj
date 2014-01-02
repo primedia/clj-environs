@@ -18,7 +18,7 @@
   [env-name, & {:keys [allow-nil], :or {allow-nil false}}]
   (let [env-val (or (System/getProperty env-name) (System/getenv env-name))]
     (if (string/blank? env-val)
-      (if (allow-nil)
+      (if allow-nil
         nil
         (throw (Exception. (str "Missing Environment Variable definition for " env-name))))
       env-val)))

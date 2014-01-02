@@ -7,7 +7,7 @@
   [f]
   (let [environ (load-env)
         previous-environ (zipmap (keys environ) (map #(System/getProperty %) (keys environ)))]
-    ;; Set System Properties from .env.test and .env.local files.
+    ;; Set System Properties from .env.test and .env.local files
     (dotenv!)
     (f)
     ;; Reset environment
