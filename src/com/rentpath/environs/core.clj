@@ -10,7 +10,7 @@
      com.rentpath.environs.core
      (:require [clojure.string :as string]))
 
-(defn Env
+(defn env
   "Retrive System Property value.
    If System Property is not found, attempt to retrieve the Environment Variable with the same name.
    If both lookups fail, throw an exception or return nil depending on the optional value of allow-nil
