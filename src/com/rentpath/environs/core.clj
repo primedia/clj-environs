@@ -8,7 +8,10 @@
 
      "}
      com.rentpath.environs.core
-     (:require [clojure.string :as string]))
+     (:require [clojure.string :as str]))
+
+(defn- throw-ex [var]
+  (throw (ex-info (str "Missing Environment Variable definition for " var) {:var var})))
 
 (defn env
   "Retrive System Property value.
@@ -17,8 +20,7 @@
   "
   [env-name, & {:keys [allow-nil], :or {allow-nil false}}]
   (let [env-val (or (System/getProperty env-name) (System/getenv env-name))]
-    (if (string/blank? env-val)
-      (if allow-nil
-        nil
-        (throw (Exception. (str "Missing Environment Variable definition for " env-name))))
-      env-val)))
+    (cond
+     (nil?       env-val) (if allow-nil nil (throw-ex env-name))
+     (str/blank? env-val) (if allow-nil ""  (throw-ex env-name))
+     :otherwise           env-val)))
