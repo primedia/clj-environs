@@ -1,4 +1,4 @@
-# environs
+# environs [DEPRECATED]
 
 Attempts to return the value of a JVM System Property.
 If the System Property lookup fails, attempts to return an Environment Variable of the same name.
